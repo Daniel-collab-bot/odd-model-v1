@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Orange Tree</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    /* Top-right Buttons */
+    .top-right-container {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .top-right-container a {
+      padding: 10px 20px;
+      font-size: 16px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .back-home-button {
+      background-color: #007bff;
+    }
+
+    .back-home-button:hover {
+      background-color: #0056b3;
+    }
+
+    .top-right-logout {
+      background-color: red;
+    }
+
+    .top-right-logout:hover {
+      background-color: #cc0000;
+    }
+
+    .content {
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .box {
+      width: 80%;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      text-align: center;
+    }
+
+    .box:hover {
+      transform: scale(1.02);
+    }
+
+    .box h2 {
+      color: #007bff;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .box p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
+</head>
+<style>
+  .confidence-box {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+</style>
+<script>
+  function displayConfidence() {
+    const params = new URLSearchParams(window.location.search);
+    const confidence = params.get("confidence");
+    if (confidence) {
+      document.getElementById("confidence-box").textContent = `Confidence: ${confidence}%`;
+    }
+  }
+</script>
+
+<body>
+
+<header>
+  <h1>Healthy Orange Tree</h1>
+  <div class="top-right-container">
+    <a href="index.php" class="back-home-button">Back to Homepage</a>
+    <a href="index.php?logout='1'" class="top-right-logout">Logout</a>
+  </div>
+  <div id="confidence-box" class="confidence-box"></div>
+<script>displayConfidence();</script>
+
+</header>
+
+<div class="content">
+  <div class="box">
+    <h2>Congratulations!</h2>
+    <p>
+      Your orange tree is in great health! Keep up the excellent work by following these tips:
+      <br><br>
+      - Regularly monitor your tree for signs of pests or diseases.<br>
+      - Ensure proper irrigation without overwatering.<br>
+      - Apply balanced fertilizers to promote healthy growth.<br>
+      - Prune dead or overcrowded branches to maintain airflow.<br>
+      - Mulch around the base to retain soil moisture and prevent weeds.<br>
+      - Keep the tree's environment clean and free of fallen debris.<br>
+      <br>
+      Keep nurturing your tree to ensure a bountiful harvest!
+    </p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Orange Disease Detection System | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

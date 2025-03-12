@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 120%;
+  background: #f0f8ff; /* AliceBlue background */
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  width: 30%;
+  margin: 50px auto 0;
+  color: white;
+  background: #ff6347; /* Tomato color for header */
+  text-align: center;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+}
+
+form, .content {
+  width: 30%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #dcdcdc; /* Light gray border */
+  background: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Softer shadow */
+}
+
+.input-group {
+  margin: 15px 0;
+}
+
+.input-group label {
+  display: block;
+  text-align: left;
+  margin: 5px 0;
+  font-weight: bold;
+  color: #444444; /* Dark gray for label */
+}
+
+.input-group input {
+  height: 35px;
+  width: 95%;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* Light gray input border */
+}
+
+.btn {
+  padding: 12px;
+  font-size: 16px;
+  color: white;
+  background: #4caf50; /* Green button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background: #388e3c; /* Darker green on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.error {
+  width: 92%; 
+  margin: 10px auto; 
+  padding: 10px; 
+  border: 1px solid #a94442; 
+  color: #a94442; 
+  background: #f2dede; 
+  border-radius: 5px; 
+  text-align: left;
+}
+
+.success {
+  width: 92%; 
+  margin: 10px auto;
+  color: #3c763d; 
+  background: #dff0d8; 
+  border: 1px solid #3c763d;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: left;
+}

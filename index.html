@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orange Disease Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <h2>Welcome to Orange Disease Detection System</h2>
+</div>
+
+<div class="upload-section">
+  <div class="upload-box">
+    <input type="file" id="fileInput" accept="image/*" style="display: none;" onchange="showFileName()">
+    <button onclick="document.getElementById('fileInput').click();">Attach</button>
+    <span id="fileName" class="file-name">No file selected</span>
+    <button class="upload-button" onclick="uploadFile()">Upload</button>
+    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+  </div>
+</div>
+
+<script>
+  function showFileName() {
+    const fileInput = document.getElementById("fileInput");
+    const fileNameSpan = document.getElementById("fileName");
+
+    if (fileInput.files.length > 0) {
+      fileNameSpan.textContent = `Attached: ${fileInput.files[0].name}`;
+    } else {
+      fileNameSpan.textContent = "No file selected";
+    }
+  }
+
+  async function uploadFile() {
+    const fileInput = document.getElementById("fileInput");
+    const resultDiv = document.getElementById("result");
+
+    if (fileInput.files.length === 0) {
+      alert("Please select a file before uploading!");
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const formData = new FormData();
+    formData.append("file", file);
+
+    resultDiv.textContent = "Processing...";
+
+    try {
+      const response = await fetch("http://127.0.0.1:5000/predict", {
+        method: "POST",
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        resultDiv.innerHTML = `Prediction: <b>${result.class}</b><br>Confidence: <b>${(result.confidence * 100).toFixed(2)}%</b>`;
+      } else {
+        resultDiv.textContent = `Error: ${result.error}`;
+      }
+    } catch (error) {
+      resultDiv.textContent = "Something went wrong. Try again!";
+    }
+  }
+</script>
+
+</body>
+</html>
